@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shean Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0b3d1b;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: #0a2f15;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      color: #90ee90;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #90ee90;
+    }
+
+    .container {
+      padding: 40px;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #1f5c2e;
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    .hero img {
+      width: 150px;
+      border-radius: 10px;
+    }
+
+    .about, .skills, .works, .contact {
+      margin-top: 60px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #90ee90;
+    }
+
+    .skills-box, .hard-skills {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .skill-card {
+      background: #1f5c2e;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1;
+      min-width: 150px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+    }
+
+    .works img {
+      width: 100px;
+      margin-right: 10px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .works img:hover {
+      transform: scale(1.1);
+    }
+
+    .contact-box {
+      background: #1f5c2e;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>SHIN</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#works">Projects</a>
+    <a href="#contact">Contacts</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <div id="home" class="hero">
+    <div>
+      <h2>Shean</h2>
+      <p>Your Multimedia Designer</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    </div>
+    <img src="Downloads/sprofile" alt="Profile">
+  </div>
+
+
+  <div id="about" class="about">
+    <h2>About Me</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+  </div>
+
+  <div class="skills">
+    <h2>Soft Skills</h2>
+    <div class="skills-box">
+      <div class="skill-card">Teamwork</div>
+      <div class="skill-card">Time Management</div>
+      <div class="skill-card">Creativity</div>
+    </div>
+
+    <h2 style="margin-top:30px;">Hard Skills</h2>
+    <div class="hard-skills">
+      <div class="skill-card">Graphic Design</div>
+      <div class="skill-card">Video Editing</div>
+      <div class="skill-card">Coding</div>
+    </div>
+  </div>
+
+  <div id="works" class="works">
+    <h2>My Works ??</h2>
+    <img src="work1.jpg">
+    <img src="work2.jpg">
+    <img src="work3.jpg">
+    <img src="work4.jpg">
+  </div>
+
+
+  <div id="contact" class="contact">
+    <h2>Contacts</h2>
+    <div class="contact-box">
+      <p>Phone: 0905 523 6894</p>
+      <p>Email: sheanjanelnass@gmail.com</p>
+      <p>Facebook: Shin Elnas</p>
+      <p>Instagram: yi_sung_shin</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const sections = document.querySelectorAll('.about, .skills, .works, .contact');
+
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      sec.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
