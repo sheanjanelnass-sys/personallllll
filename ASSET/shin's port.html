@@ -2,203 +2,1040 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Shean Portfolio</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Shin Portfolio | Shin laging masarap</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #0a2f15;
+      color: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
     }
 
     html {
       scroll-behavior: smooth;
     }
 
-    body {
-      background: #0b3d1b;
-      color: white;
+    /* ===== swirling animationsnskdskd ===== */
+    .swirl-1 {
+      position: fixed;
+      top: 5%;
+      right: -50px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, 
+        rgba(144,238,144,0.06) 0%,
+        rgba(100,200,100,0.03) 40%,
+        transparent 70%);
+      border-radius: 60% 40% 50% 50% / 45% 50% 50% 55%;
+      filter: blur(8px);
+      animation: swirlFloat 12s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
     }
 
+    .swirl-2 {
+      position: fixed;
+      bottom: 10%;
+      left: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle at 30% 40%,
+        rgba(144,238,144,0.08) 0%,
+        rgba(100,200,100,0.03) 50%,
+        transparent 70%);
+      border-radius: 70% 30% 60% 40% / 40% 50% 50% 60%;
+      filter: blur(10px);
+      animation: swirlFloatReverse 15s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .swirl-3 {
+      position: fixed;
+      top: 40%;
+      left: 10%;
+      width: 300px;
+      height: 300px;
+      background: repeating-radial-gradient(circle at 20% 40%,
+        rgba(144,238,144,0.04) 0px,
+        rgba(144,238,144,0.04) 2px,
+        transparent 2px,
+        transparent 8px);
+      border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+      animation: swirlRotate 20s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .swirl-4 {
+      position: fixed;
+      bottom: 20%;
+      right: 5%;
+      width: 350px;
+      height: 350px;
+      background: linear-gradient(135deg,
+        rgba(144,238,144,0.04) 0%,
+        rgba(80,180,80,0.06) 30%,
+        rgba(144,238,144,0.02) 60%,
+        transparent 100%);
+      border-radius: 30% 70% 50% 50% / 30% 35% 65% 70%;
+      filter: blur(6px);
+      animation: swirlWave 10s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .swirl-small-1 {
+      position: fixed;
+      top: 20%;
+      left: 20%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(ellipse,
+        rgba(144,238,144,0.05) 0%,
+        transparent 70%);
+      border-radius: 40% 60% 70% 30% / 50% 45% 55% 50%;
+      animation: swirlSpin 8s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .swirl-small-2 {
+      position: fixed;
+      top: 70%;
+      right: 15%;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(ellipse at 70% 30%,
+        rgba(100,200,100,0.05) 0%,
+        transparent 80%);
+      border-radius: 60% 40% 30% 70% / 60% 50% 50% 40%;
+      animation: swirlFloat 14s ease-in-out infinite reverse;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .swirl-waves {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: repeating-linear-gradient(110deg,
+        transparent,
+        transparent 40px,
+        rgba(144,238,144,0.02) 40px,
+        rgba(144,238,144,0.04) 80px);
+      mask: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes swirlFloat {
+      0%, 100% { transform: translate(0, 0) rotate(0deg);
+        border-radius: 60% 40% 50% 50% / 45% 50% 50% 55%; }
+      33% { transform: translate(20px, -20px) rotate(5deg);
+        border-radius: 50% 50% 60% 40% / 40% 55% 45% 60%; }
+      66% { transform: translate(-10px, 15px) rotate(-3deg);
+        border-radius: 55% 45% 45% 55% / 50% 50% 50% 50%; }
+    }
+
+    @keyframes swirlFloatReverse {
+      0%, 100% { transform: translate(0, 0) rotate(0deg);
+        border-radius: 70% 30% 60% 40% / 40% 50% 50% 60%; }
+      33% { transform: translate(-15px, 20px) rotate(-4deg);
+        border-radius: 60% 40% 50% 50% / 50% 45% 55% 50%; }
+      66% { transform: translate(15px, -10px) rotate(3deg);
+        border-radius: 50% 50% 65% 35% / 45% 55% 45% 55%; }
+    }
+
+    @keyframes swirlRotate {
+      from { transform: rotate(0deg);
+        border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%; }
+      to { transform: rotate(360deg);
+        border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%; }
+    }
+
+    @keyframes swirlWave {
+      0%, 100% { transform: scale(1) rotate(0deg);
+        border-radius: 30% 70% 50% 50% / 30% 35% 65% 70%; }
+      50% { transform: scale(1.1) rotate(180deg);
+        border-radius: 50% 50% 30% 70% / 70% 65% 35% 30%; }
+    }
+
+    @keyframes swirlSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* ===== STICKY NAVIGATION ===== */
     header {
       display: flex;
       justify-content: space-between;
-      padding: 20px 40px;
-      background: #0a2f15;
+      align-items: center;
+      padding: 20px 80px;
+      background: rgba(10, 47, 21, 0.95);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(144,238,144,0.2);
+    }
+
+    header.scrolled {
+      padding: 12px 80px;
+      background: rgba(10, 47, 21, 0.98);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     }
 
     header h1 {
-      color: #90ee90;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
 
     nav a {
-      margin-left: 20px;
+      margin-left: 40px;
       color: white;
       text-decoration: none;
-      transition: 0.3s;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      position: relative;
     }
 
-    nav a:hover {
+    nav a:hover, nav a.active {
       color: #90ee90;
     }
 
-    .container {
-      padding: 40px;
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #90ee90;
+      border-radius: 2px;
     }
 
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 80px;
+    }
+
+    /* ===== HERO SECTION ===== */
     .hero {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #1f5c2e;
-      padding: 30px;
-      border-radius: 15px;
+      gap: 60px;
+      margin-top: 40px;
+      padding: 40px;
+      background: rgba(10, 47, 21, 0.3);
+      backdrop-filter: blur(3px);
+      border-radius: 20px;
+      border: 1px solid rgba(144,238,144,0.15);
     }
 
-    .hero img {
-      width: 150px;
-      border-radius: 10px;
+    .hero-content {
+      flex: 1;
     }
 
-    .about, .skills, .works, .contact {
-      margin-top: 60px;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.6s ease;
-    }
-
-    .show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h2 {
+    .hero-content h2 {
+      font-size: 48px;
       margin-bottom: 15px;
+      color: white;
+      font-weight: 600;
+    }
+
+    .hero-content .title {
+      font-size: 20px;
+      margin-bottom: 25px;
       color: #90ee90;
     }
 
-    .skills-box, .hard-skills {
+    .hero-content p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    .btn-project {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid #90ee90;
+      color: #90ee90;
+      padding: 12px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-project:hover {
+      background: #90ee90;
+      color: #0a2f15;
+      transform: translateY(-2px);
+    }
+
+    .hero-img {
+      flex: 1;
       display: flex;
-      gap: 20px;
+      justify-content: flex-end;
+    }
+
+    .hero-img img {
+      width: 320px;
+      height: 320px;
+      border-radius: 20px;
+      object-fit: cover;
+      background: #1f5c2e;
+      border: 3px solid rgba(144,238,144,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-img img:hover {
+      transform: scale(1.02);
+      border-color: #90ee90;
+    }
+
+    /* ===== About & Contact ===== */
+    .about, .contact {
+      margin-top: 60px;
+      padding: 30px;
+      background: rgba(10, 47, 21, 0.3);
+      backdrop-filter: blur(3px);
+      border-radius: 20px;
+      border: 1px solid rgba(144,238,144,0.15);
+    }
+
+    h2 {
+      color: #90ee90;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    /* ===== SKILLS SECTION ===== */
+    .skills {
+      margin-top: 60px;
+      padding: 30px;
+      background: rgba(10, 47, 21, 0.3);
+      backdrop-filter: blur(3px);
+      border-radius: 20px;
+      border: 1px solid rgba(144,238,144,0.15);
+    }
+
+    .skills h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .skills-container {
+      display: flex;
+      gap: 30px;
       flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .skill-item {
+      flex: 1;
+      min-width: 250px;
+      max-width: 320px;
     }
 
     .skill-card {
-      background: #1f5c2e;
-      padding: 20px;
-      border-radius: 10px;
-      flex: 1;
-      min-width: 150px;
+      background: rgba(31, 92, 46, 0.8);
+      padding: 25px 20px;
+      border-radius: 12px;
       text-align: center;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(144,238,144,0.3);
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .skill-icon {
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .skill-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: #90ee90;
+      stroke-width: 1.5;
+      fill: none;
     }
 
     .skill-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-5px);
+      background: #1f5c2e;
+      border-color: #90ee90;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
 
-    .works img {
-      width: 100px;
-      margin-right: 10px;
+    .skill-card:hover .skill-icon svg {
+      stroke: white;
+    }
+
+    .skill-description {
+      background: #1a4a28;
+      padding: 0;
+      border-radius: 8px;
+      margin-top: 0;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      border-left: 3px solid #90ee90;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .skill-description strong {
+      color: #90ee90;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .skill-description-inner {
+      padding: 15px;
+    }
+
+    .skill-item:hover .skill-description {
+      max-height: 150px;
+      opacity: 1;
+      margin-top: 12px;
+    }
+
+    /* ===== work ===== */
+    .works {
+      margin-top: 60px;
+      padding: 30px;
+      background: rgba(10, 47, 21, 0.3);
+      backdrop-filter: blur(3px);
+      border-radius: 20px;
+      border: 1px solid rgba(144,238,144,0.15);
+    }
+
+    .carousel-outer {
+      position: relative;
+      padding: 0 60px;
+    }
+
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease-out;
+      cursor: grab;
+    }
+
+    .carousel-track:active {
+      cursor: grabbing;
+    }
+
+    .carousel-card {
+      flex: 0 0 calc(100% / 3);
+      padding: 0 12px;
+    }
+
+    .card-inner {
+      background: rgba(31, 92, 46, 0.8);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(144,238,144,0.3);
+    }
+
+    .carousel-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-title {
+      padding: 15px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: #90ee90;
+      border-top: 1px solid rgba(144,238,144,0.2);
+    }
+
+    .card-description {
+      background: #1a4a28;
+      padding: 0;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      border-left: 3px solid #90ee90;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .card-description-inner {
+      padding: 15px;
+    }
+
+    .card-description-inner strong {
+      color: #90ee90;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .carousel-card:hover .card-description {
+      max-height: 150px;
+      opacity: 1;
+    }
+
+    /* Navigation Buttons */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(144,238,144,0.9);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: bold;
+      color: #0a2f15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 25;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .carousel-btn:hover {
+      background: #90ee90;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-btn:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .btn-prev {
+      left: 0;
+    }
+
+    .btn-next {
+      right: 0;
+    }
+
+    /* Dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: #90ee90;
+      width: 25px;
       border-radius: 5px;
-      transition: 0.3s;
-    }
-
-    .works img:hover {
-      transform: scale(1.1);
     }
 
     .contact-box {
-      background: #1f5c2e;
+      background: rgba(31, 92, 46, 0.6);
       padding: 20px;
       border-radius: 10px;
-      width: 300px;
+      display: inline-block;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .contact-box p {
+      margin: 10px 0;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #90ee90;
+      color: #0a2f15;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 100;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .scroll-top:hover {
+      background: #4caf50;
+      transform: translateY(-3px);
+    }
+
+    .scroll-top.show {
+      display: flex;
+    }
+
+    @media (max-width: 968px) {
+      header { padding: 15px 40px; }
+      .container { padding: 20px 40px; }
+      .hero { flex-direction: column; text-align: center; }
+      .hero-img { justify-content: center; }
+      nav a { margin-left: 20px; font-size: 14px; }
+      .carousel-outer { padding: 0 50px; }
+      .carousel-card img { height: 160px; }
+      .carousel-btn { width: 42px; height: 42px; font-size: 20px; }
+    }
+
+    @media (max-width: 768px) {
+      .carousel-outer { padding: 0 40px; }
+      .carousel-card { padding: 0 6px; }
+      .carousel-card img { height: 140px; }
+      .skill-item { min-width: 100%; }
+      .carousel-btn { width: 36px; height: 36px; font-size: 18px; }
     }
   </style>
 </head>
-
 <body>
 
-<header>
-  <h1>SHIN</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#works">Projects</a>
-    <a href="#contact">Contacts</a>
-  </nav>
-</header>
+  <div class="swirl-1"></div>
+  <div class="swirl-2"></div>
+  <div class="swirl-3"></div>
+  <div class="swirl-4"></div>
+  <div class="swirl-small-1"></div>
+  <div class="swirl-small-2"></div>
+  <div class="swirl-waves"></div>
 
-<div class="container">
+  <header>
+    <h1>SHIN</h1>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#works">Projects</a>
+      <a href="#contact">Contacts</a>
+    </nav>
+  </header>
 
-  <div id="home" class="hero">
-    <div>
-      <h2>Shean</h2>
-      <p>Your Multimedia Designer</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-    </div>
-    <img src="Downloads/sprofile" alt="Profile">
-  </div>
-
-
-  <div id="about" class="about">
-    <h2>About Me</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-  </div>
-
-  <div class="skills">
-    <h2>Soft Skills</h2>
-    <div class="skills-box">
-      <div class="skill-card">Teamwork</div>
-      <div class="skill-card">Time Management</div>
-      <div class="skill-card">Creativity</div>
+  <div class="container">
+    <div id="home" class="hero">
+      <div class="hero-content">
+        <h2>Shean</h2>
+        <p class="title">Your Multimedia Designer</p>
+        <p>Passionate creative designer with expertise in branding, motion graphics, and web design. I bring ideas to life through visual storytelling, blending aesthetics with functionality to create memorable digital experiences.</p>
+        <a href="#works" class="btn-project">View Projects →</a>
+      </div>
+      <div class="hero-img">
+        <img src="C:\Users\PC\Downloads\shin.jfif" alt="Shean Profile">
+      </div>
     </div>
 
-    <h2 style="margin-top:30px;">Hard Skills</h2>
-    <div class="hard-skills">
-      <div class="skill-card">Graphic Design</div>
-      <div class="skill-card">Video Editing</div>
-      <div class="skill-card">Coding</div>
+    <div id="about" class="about">
+      <h2>About Me</h2>
+      <p>I'm a multimedia designer with over 5 years of experience in graphic design, video editing, and front-end development. My work focuses on creating visually compelling assets that resonate with audiences. I believe in the power of design to communicate emotions and ideas, and I'm constantly exploring new creative techniques.</p>
+    </div>
+
+    <!-- Skills Section - -->
+    <div id="skills" class="skills">
+      <h2>Soft Skills</h2>
+      <div class="skills-container">
+        <div class="skill-item">
+          <div class="skill-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </span>
+            Teamwork
+          </div>
+          <div class="skill-description">
+            <div class="skill-description-inner">
+              <strong>Teamwork</strong>
+              magaling po mag emel.
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </span>
+            Time Management
+          </div>
+          <div class="skill-description">
+            <div class="skill-description-inner">
+              <strong>Time Management</strong>
+              procastinate tapos clutch sakin yan
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 0 1 10 10c0 5.5-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2z" />
+                <path d="M12 6v6l4 2" />
+                <path d="M12 12h.01" />
+              </svg>
+            </span>
+            Creativity
+          </div>
+          <div class="skill-description">
+            <div class="skill-description-inner">
+              <strong>Creativity</strong>
+              Thinking outside the box to create unique, innovative solutions and designs that stand out.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 style="margin-top: 60px;">Hard Skills</h2>
+      <div class="skills-container">
+        <div class="skill-item">
+          <div class="skill-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+                <circle cx="7.5" cy="9.5" r="1.5" />
+                <circle cx="16.5" cy="9.5" r="1.5" />
+              </svg>
+            </span>
+            Graphic Design
+          </div>
+          <div class="skill-description">
+            <div class="skill-description-inner">
+              <strong>Graphic Design</strong>
+              Expertise in Photoshop, Illustrator, Figma, Adobe XD, and Canva. Creating stunning visual content for brands.
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="16" height="12" rx="2" />
+                <polygon points="22 8 18 12 22 16" />
+              </svg>
+            </span>
+            Video Editing
+          </div>
+          <div class="skill-description">
+            <div class="skill-description-inner">
+              <strong>Video Editing</strong>
+              Proficient in Premiere Pro, After Effects, DaVinci Resolve, and Final Cut Pro. Professional video production.
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-card">
+            <span class="skill-icon">
+              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </span>
+            Coding
+          </div>
+          <div class="skill-description">
+            <div class="skill-description-inner">
+              <strong>Coding</strong>
+              Skilled in HTML, CSS, JavaScript, React, Python, and Tailwind CSS. Building modern web applications.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Works  -->
+    <div id="works" class="works">
+      <h2>My Works</h2>
+      <div class="carousel-outer">
+        <button class="carousel-btn btn-prev" id="prevBtn">❮</button>
+        <div class="carousel-container">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-card"><div class="card-inner"><img src="C:\Users\PC\Downloads\masarap na shin.jfif" alt="Brand"><div class="card-title">Brand Identity Design</div><div class="card-description"><div class="card-description-inner"><strong>Brand Identity Design</strong>Complete brand identity package including logo, color palette, and typography guidelines.</div></div></div></div>
+            <div class="carousel-card"><div class="card-inner"><img src="C:\Users\PC\Downloads\swimming na shin.jfif" alt="Motion"><div class="card-title">Motion Graphics Reel</div><div class="card-description"><div class="card-description-inner"><strong>Motion Graphics Reel</strong>Animated motion graphics showcase with smooth transitions and kinetic typography.</div></div></div></div>
+            <div class="carousel-card"><div class="card-inner"><img src="C:\Users\PC\OneDrive\Pictures\Screenshots\Screenshot 2026-05-06 030718.png" alt="Web"><div class="card-title">Web Design Portfolio</div><div class="card-description"><div class="card-description-inner"><strong>Web Design Portfolio</strong>Modern responsive website design with interactive elements and animations.</div></div></div></div>
+            <div class="carousel-card"><div class="card-inner"><img src="C:\Users\PC\Downloads\mas masarap na shin.jfif" alt="Album"><div class="card-title">Album Cover Art</div><div class="card-description"><div class="card-description-inner"><strong>Album Cover Art</strong>Creative album cover design featuring abstract artwork and custom typography.</div></div></div></div>
+            <div class="carousel-card"><div class="card-inner"><img src="C:\Users\PC\OneDrive\Pictures\Screenshots\Screenshot 2026-05-06 031302.png" alt="Social"><div class="card-title">Social Media Campaign</div><div class="card-description"><div class="card-description-inner"><strong>Social Media Campaign</strong>Engaging social media graphics designed for maximum audience engagement.</div></div></div></div>
+            <div class="carousel-card"><div class="card-inner"><img src="C:\Users\PC\OneDrive\Pictures\Screenshots\Screenshot 2026-05-06 031122.png" alt="UIUX"><div class="card-title">UI/UX App Design</div><div class="card-description"><div class="card-description-inner"><strong>UI/UX App Design</strong>Mobile app interface design focused on user experience and modern aesthetics.</div></div></div></div>
+          </div>
+        </div>
+        <button class="carousel-btn btn-next" id="nextBtn">❯</button>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+
+    <div id="contact" class="contact">
+      <h2>Contacts</h2>
+      <div class="contact-box">
+        <p>📧 Email: sheanjanelnass@gmail.com</p>
+        <p>📘 Facebook: Shin Elnas</p>
+        <p>📷 Instagram: @yi_sung_shin</p>
+        <p>💼 business number: 0966 612 9111</p>
+        <div>
+      </div>
     </div>
   </div>
 
-  <div id="works" class="works">
-    <h2>My Works ??</h2>
-    <img src="work1.jpg">
-    <img src="work2.jpg">
-    <img src="work3.jpg">
-    <img src="work4.jpg">
-  </div>
+  <button class="scroll-top" onclick="scrollToTop()">↑</button>
 
-
-  <div id="contact" class="contact">
-    <h2>Contacts</h2>
-    <div class="contact-box">
-      <p>Phone: 0905 523 6894</p>
-      <p>Email: sheanjanelnass@gmail.com</p>
-      <p>Facebook: Shin Elnas</p>
-      <p>Instagram: yi_sung_shin</p>
-    </div>
-  </div>
-
-</div>
-
-<script>
-const sections = document.querySelectorAll('.about, .skills, .works, .contact');
-
-window.addEventListener('scroll', () => {
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      sec.classList.add('show');
+  <script>
+    // ========== ewan ko kung ano to (Standalone working code) ==========
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('carouselDots');
+    
+    let currentIndex = 0;
+    const cardsPerView = 3;
+    let totalCards = document.querySelectorAll('.carousel-card').length;
+    let maxIndex = totalCards - cardsPerView;
+    
+    function updateCarousel() {
+      const percent = (currentIndex * -100) / cardsPerView;
+      track.style.transform = `translateX(${percent}%)`;
+      updateDots();
+      
+      prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+      prevBtn.style.cursor = currentIndex === 0 ? 'not-allowed' : 'pointer';
+      nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+      nextBtn.style.cursor = currentIndex >= maxIndex ? 'not-allowed' : 'pointer';
     }
-  });
-});
-</script>
-
+    
+    function updateDots() {
+      const dotCount = Math.ceil(totalCards / cardsPerView);
+      const currentPage = Math.floor(currentIndex / cardsPerView);
+      dotsContainer.innerHTML = '';
+      
+      for (let i = 0; i < dotCount; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === currentPage) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          currentIndex = i * cardsPerView;
+          if (currentIndex > maxIndex) currentIndex = maxIndex;
+          updateCarousel();
+        });
+        dotsContainer.appendChild(dot);
+      }
+    }
+    
+    function nextSlide() {
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateCarousel();
+      }
+    }
+    
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    }
+    
+    // Touch swipe for mobile -ewan ko bat nilagay nya to
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    track.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeDistance = touchEndX - touchStartX;
+      if (Math.abs(swipeDistance) > 40) {
+        if (swipeDistance < 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    });
+    
+    // Mouse drag for desktop
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartPercent = 0;
+    
+    track.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartPercent = (currentIndex * -100) / cardsPerView;
+      track.style.transition = 'none';
+      track.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+    
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - dragStartX;
+      const containerWidth = track.parentElement.clientWidth;
+      const deltaPercent = (deltaX / containerWidth) * 100;
+      let newPercent = dragStartPercent + deltaPercent;
+      
+      const minPercent = -(maxIndex * 100) / cardsPerView;
+      const maxPercent = 0;
+      if (newPercent > maxPercent) {
+        newPercent = maxPercent + (newPercent - maxPercent) * 0.3;
+      } else if (newPercent < minPercent) {
+        newPercent = minPercent + (newPercent - minPercent) * 0.3;
+      }
+      
+      track.style.transform = `translateX(${newPercent}%)`;
+    });
+    
+    window.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.style.transition = 'transform 0.4s ease-out';
+      track.style.cursor = 'grab';
+      
+      const finalPercent = parseFloat(track.style.transform.replace('translateX(', '').replace('%)', ''));
+      const percentPerCard = 100 / cardsPerView;
+      let targetIndex = Math.round(-finalPercent / percentPerCard);
+      targetIndex = Math.max(0, Math.min(maxIndex, targetIndex));
+      
+      if (targetIndex !== currentIndex) {
+        currentIndex = targetIndex;
+        updateCarousel();
+      } else {
+        updateCarousel();
+      }
+    });
+    
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    
+    document.querySelectorAll('.carousel-card img').forEach(img => {
+      img.addEventListener('dragstart', (e) => e.preventDefault());
+    });
+    
+    window.addEventListener('resize', () => {
+      totalCards = document.querySelectorAll('.carousel-card').length;
+      maxIndex = totalCards - cardsPerView;
+      if (currentIndex > maxIndex) currentIndex = Math.max(0, maxIndex);
+      updateCarousel();
+    });
+    
+    updateCarousel();
+    
+    // ========== SCROLL EFFECTS & NAVIGATION ==========
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      const scrollTopBtn = document.querySelector('.scroll-top');
+      
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+      
+      const sections = document.querySelectorAll('div[id]');
+      const navLinks = document.querySelectorAll('nav a');
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+    
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
